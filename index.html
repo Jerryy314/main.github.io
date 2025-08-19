@@ -9,9 +9,9 @@
       margin: 0;
       background: #f4f4f9;
       color: #333;
-      min-height: 100vh;        /* Add this */
-      display: flex;            /* Add this */
-      flex-direction: column;   /* Add this */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -48,24 +48,52 @@
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
       padding: 30px;
-      flex: 1;       /* Add this */
+      flex: 1;
     }
 
     .gallery.active {
       display: grid;
     }
 
-    .gallery img {
-      width: 100%;
+    .gallery-item {
+      display: flex;
+      flex-direction: column;
       border-radius: 12px;
+      overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
       cursor: pointer;
     }
 
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+    .gallery .caption {
+      padding: 15px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .gallery a {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .gallery a .caption {
+      color: #0066cc;
+      font-weight: bold;
     }
 
     footer {
@@ -74,7 +102,7 @@
       background: #222;
       color: white;
       font-size: 0.9rem;
-      margin-top: auto; /* Add this */
+      margin-top: auto;
     }
   </style>
 </head>
@@ -88,20 +116,36 @@
   </div>
 
   <div id="branch1" class="gallery active">
-    <a href="Poster/URECA2.pdf" target="_blank">LITHIUM ABUNDANCE ESTIMATES FROM ABSORPTION LINES IN CLASSICAL NOVAE (PDF)</a>
-    <a href="Poster/URECA1.pdf" target="_blank">MULTI-GAUSSIAN DECOMPOSITION OF ABSORPTION LINES IN HIGH-RESOLUTION ICD SPECTRA USING IDL (PDF)</a>
+    <a href="Poster/URECA2.pdf" target="_blank" class="gallery-item">
+      <div class="caption">LITHIUM ABUNDANCE ESTIMATES FROM ABSORPTION LINES IN CLASSICAL NOVAE (PDF)</div>
+    </a>
+    <a href="Poster/URECA1.pdf" target="_blank" class="gallery-item">
+      <div class="caption">MULTI-GAUSSIAN DECOMPOSITION OF ABSORPTION LINES IN HIGH-RESOLUTION ICD SPECTRA USING IDL (PDF)</div>
+    </a>
   </div>
 
-  <!-- Branch 2 -->
+  <!-- Branch 2 - Keyboards -->
   <div id="branch2" class="gallery">
-    <img src="Keyboard/barebone.jpg" alt="Owlab Jelly Evolv unbuilt">
-    <img src="Keyboard/built.jpg" alt="Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari">
+    <div class="gallery-item">
+      <img src="Keyboard/barebone.jpg" alt="Owlab Jelly Evolv unbuilt">
+      <div class="caption">Owlab Jelly Evolv unbuilt</div>
+    </div>
+    <div class="gallery-item">
+      <img src="Keyboard/built.jpg" alt="Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari">
+      <div class="caption">Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari</div>
+    </div>
   </div>
 
   <!-- Branch 3 -->
   <div id="branch3" class="gallery">
-    <img src="images/photo5.jpg" alt="5">
-    <img src="images/photo6.jpg" alt="6">
+    <div class="gallery-item">
+      <img src="images/photo5.jpg" alt="5">
+      <div class="caption">Image 5</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/photo6.jpg" alt="6">
+      <div class="caption">Image 6</div>
+    </div>
   </div>
 
   <footer>© 2025 jy</footer>
