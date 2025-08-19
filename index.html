@@ -9,9 +9,9 @@
       margin: 0;
       background: #f4f4f9;
       color: #333;
-      min-height: 100vh;        /* Add this */
-      display: flex;            /* Add this */
-      flex-direction: column;   /* Add this */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -48,7 +48,7 @@
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
       gap: 20px;
       padding: 30px;
-      flex: 1;       /* Add this */
+      flex: 1;
     }
 
     .gallery.active {
@@ -67,6 +67,18 @@
       transform: scale(1.05);
       box-shadow: 0 6px 16px rgba(0,0,0,0.3);
     }
+    
+    /* New styles for image containers with captions */
+    .image-container {
+      position: relative;
+    }
+    
+    .image-caption {
+      text-align: center;
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: #555;
+    }
 
     footer {
       text-align: center;
@@ -74,7 +86,7 @@
       background: #222;
       color: white;
       font-size: 0.9rem;
-      margin-top: auto; /* Add this */
+      margin-top: auto;
     }
   </style>
 </head>
@@ -92,10 +104,16 @@
     <a href="Poster/URECA1.pdf" target="_blank">MULTI-GAUSSIAN DECOMPOSITION OF ABSORPTION LINES IN HIGH-RESOLUTION ICD SPECTRA USING IDL (PDF)</a>
   </div>
 
-  <!-- Branch 2 -->
+  <!-- Branch 2 with captions added -->
   <div id="branch2" class="gallery">
-    <img src="Keyboard/barebone.jpg" alt="Owlab Jelly Evolv unbuilt">
-    <img src="Keyboard/built.jpg" alt="Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari">
+    <div class="image-container">
+      <img src="Keyboard/barebone.jpg" alt="Owlab Jelly Evolv unbuilt">
+      <div class="image-caption">Owlab Jelly Evolv unbuilt</div>
+    </div>
+    <div class="image-container">
+      <img src="Keyboard/built.jpg" alt="Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari">
+      <div class="image-caption">Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari</div>
+    </div>
   </div>
 
   <!-- Branch 3 -->
