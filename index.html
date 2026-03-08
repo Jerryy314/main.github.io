@@ -1,454 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Main</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f4f9;
-      color: #333;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+<meta charset="UTF-8">
+<title>Main</title>
 
-    header {
-      background: #222;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f4f9;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-    .buttons {
-      text-align: center;
-      margin: 20px;
-    }
+header {
+  background: #222;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
 
-    .buttons button {
-      margin: 5px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #444;
-      color: white;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 30px;
+  flex: 1;
+}
 
-    .buttons button:hover {
-      background: #666;
-    }
+.gallery a {
+  display: block;
+  background: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
 
-    .gallery {
-      display: none; /* hidden until selected */
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 30px;
-      flex: 1;
-    }
+.gallery a:hover {
+  transform: scale(1.02);
+}
 
-    .gallery.active {
-      display: grid;
-    }
-
-    .gallery img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    }
-    
-    /* New styles for image containers with captions */
-    .image-container {
-      position: relative;
-    }
-    
-    .image-caption {
-      text-align: center;
-      margin-top: 8px;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #222;
-      color: white;
-      font-size: 0.9rem;
-      margin-top: auto;
-    }
-  </style>
+footer {
+  text-align: center;
+  padding: 15px;
+  background: #222;
+  color: white;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+</style>
 </head>
+
 <body>
-  <header>Logging things</header>
 
-  <div class="buttons">
-    <button onclick="showGallery('branch1')">Posters/Papers</button>
-    <button onclick="showGallery('branch2')">Keyboards</button>
-    <button onclick="showGallery('branch3')">Randoms</button>
-    <button onclick="window.open('https://open.spotify.com/user/sdfntpbzny2kgqopa64oe3phb', '_blank')">Spotify</button>
-    <button onclick="showGallery('branch5')">None</button>
-    <button onclick="showGallery('branch6')">Books</button>
-    <button onclick="showGallery('branch7')">Reference</button>
-  </div>
-
-  <div id="branch1" class="gallery active">
-    <a href="Poster/URECA2.pdf" target="_blank">LITHIUM ABUNDANCE ESTIMATES FROM ABSORPTION LINES IN CLASSICAL NOVAE (PDF)</a>
-    <a href="Poster/URECA1.pdf" target="_blank">MULTI-GAUSSIAN DECOMPOSITION OF ABSORPTION LINES IN HIGH-RESOLUTION ICD SPECTRA USING IDL (PDF)</a>
-    <a href="Paper/Lithium.pdf" target="_blank">Draft(updated 12/07/2025)(PDF)</a>
-  </div>
-
-  <!-- Branch 2 with captions added -->
-  <div id="branch2" class="gallery">
-    <div class="image-container">
-      <img src="Keyboard/barebone.jpg" alt="Owlab Jelly Evolv unbuilt">
-      <div class="image-caption">Owlab Jelly Evolv unbuilt</div>
-    </div>
-    
-  <div class="image-container">
-      <img src="Keyboard/built.jpg" alt="Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari">
-      <div class="image-caption">Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari</div>
-    </div>
-
-  <div class="image-container">
-      <img src="Keyboard/key.jpg" alt="Owlab Jelly Evolv w/ all foam, POM plate, princess V4 switches, Matt3o MT3 Susuwatari">
-      <div class="image-caption"></div>
-    </div>
-  </div>
-
-  <!-- Branch 3 -->
-  <div id="branch3" class="gallery">
-    
-    <div class="image-container">
-      <img src="Astronomy/1.jpg" alt="">
-      <div class="image-caption">For AST 346 HW</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Astronomy/2.jpg" alt="">
-      <div class="image-caption">For AST 346 HW</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Fencing/1.jpg" alt="">
-      <div class="image-caption">There is a particular one that I really want to fence with</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Sky/1.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Sky/2.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Sky/3.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Physics/Lab.jpg" alt="">
-      <div class="image-caption">Weird shape but okay</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Physics/Lab2.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Astronomy/3.jpg" alt="">
-      <div class="image-caption">BAR!!!! but milk tea >>> alcohols.</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Astronomy/4.jpg" alt="">
-      <div class="image-caption">Crab Nebula with Gojo</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Animal/dog.jpg" alt="">
-      <div class="image-caption">CORGI!</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Sky/4.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/RICH.jpg" alt="">
-      <div class="image-caption">Capitalism.</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Physics/Lab3.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Physics/collider.jpg" alt="">
-      <div class="image-caption">Inside of a broken collider</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Physics/collider2.jpg" alt="">
-      <div class="image-caption">Inside of a broken collider part 2</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Physics/lab4.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-    
-    <div class="image-container">
-      <img src="Random/disney.jpg" alt="">
-      <div class="image-caption">Disney(day)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/disney_night.jpg" alt="">
-      <div class="image-caption">Disney(night)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/cuts.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/1.jpg" alt="">
-      <div class="image-caption">Air fried chicken(11/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/2.jpg" alt="">
-      <div class="image-caption">Spaghetti with steak(8.5/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/3.jpg" alt="">
-      <div class="image-caption">Pasta with white mushroom(7/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/4.jpg" alt="">
-      <div class="image-caption">Ramen hack with homemade milk tea(9/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/5.jpg" alt="">
-      <div class="image-caption">Tomato fried egg with italian sausages(9.5/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/6.jpg" alt="">
-      <div class="image-caption">Mapo tofu with pork(10/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/7.jpg" alt="">
-      <div class="image-caption">More ramen hack(9/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/11.jpg" alt="">
-      <div class="image-caption">American w/o potatoes(9/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/8.jpg" alt="">
-      <div class="image-caption">Spaghetti w/ shrimp and sausage(8.5/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/9.jpg" alt="">
-      <div class="image-caption">Spaghetti w/ egg and shrimp(8.5/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/10.jpg" alt="">
-      <div class="image-caption">Brunch(9/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Food/12.jpg" alt="">
-      <div class="image-caption">Steak w/ white mushrooms(9/10)</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/bd.jpg" alt="">
-      <div class="image-caption">What a great sign</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/bm.jpg" alt="">
-      <div class="image-caption">Lunar Eclipse</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/calc.jpg" alt="">
-      <div class="image-caption">Time to code</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/chess.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/no_way.jpg" alt="">
-      <div class="image-caption">No way</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/fish.jpg" alt="">
-      <div class="image-caption">fish</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/more_fish.jpg" alt="">
-      <div class="image-caption">More fish</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/my_love.jpg" alt="">
-      <div class="image-caption">Milk tea >>> everything</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/my_love2.jpg" alt="">
-      <div class="image-caption">Milk tea >>> everything</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/nerd.jpg" alt="">
-      <div class="image-caption">nerd</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/proof.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/sure.jpg" alt="">
-      <div class="image-caption">7 bucks ahhhhhh pocky</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Physics/Lab5.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/freaky.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/ily.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/stress.jpg" alt="">
-      <div class="image-caption">already de-stressing</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/flowers.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/mtsb.jpg" alt="">
-      <div class="image-caption">mtsb</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/bb.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-    
-    <div class="image-container">
-      <img src="Astronomy/5.jpg" alt="">
-      <div class="image-caption">6:30 pm to 1:30 am no break ahhh observation session</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/pt1.jpg" alt="">
-      <div class="image-caption">yes I know how to take pretty pictures</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/pt2.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/ss1.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/ss2.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/ss3.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/bigcat.jpg" alt="">
-      <div class="image-caption">big kitty</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/wt.jpg" alt="">
-      <div class="image-caption">the bund</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/beach.jpg" alt="">
-      <div class="image-caption"></div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/sw.jpg" alt="">
-      <div class="image-caption">PEAK</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/song.jpg" alt="">
-      <div class="image-caption">2025</div>
-    </div>
-
-    <div class="image-container">
-      <img src="Random/fwbook.jpg" alt="">
-      <div class="image-caption">1300 pages ahhh book</div>
-    </div>
-
-    
-    
-    
-  </div>
+<header>Logging things</header>
 
     <div id="branch5" class="gallery">
       <a href="None/none.pdf" target="_blank">No name(PDF)</a>
@@ -543,37 +155,10 @@
       <a href="None/2_21_2026.pdf" target="_blank">2/21/2026(PDF)</a>
       <a href="None/2_22_2026.pdf" target="_blank">2/22/2026(PDF)</a>
       <a href="None/2_26_2026.pdf" target="_blank">2/26/2026(PDF)</a>
-      
-      
 
+</div>
 
-      
-      
-    </div>
+<footer>© 2025 jy</footer>
 
-    <div id="branch6" class="gallery">
-      <a href="Book/crime_and_punishment.pdf" target="_blank">HUR235 Crime and Punishment(PDF)</a>
-      <a href="Book/David J. Griffiths - Introduction to Electrodynamics (2017, Cambridge University Press) - libgen.li.pdf
-" target="_blank">EM1(PDF)</a>
-      <a href="Book/Barbara Ryden - Introduction to Cosmology (2016, Cambridge University Press) - libgen.li.pdf
-" target="_blank">AST347(PDF)</a>
-      <a href="Book/invitation.pdf" target="_blank">HUR235 Invitation to a Beheading(PDF)</a>
-    </div>
-
-    <div id="branch7" class="gallery">
-      <a href="Reference/Duncan_Jones_1983.pdf" target="_blank">Duncan_Jones_1983(Li in cool stars)</a>
-      <a href="Reference/Carlsson_94.pdf" target="_blank">Carlsson_94(Li in cool stars)</a>
-      <a href="Reference/Duncan_Apj373.pdf" target="_blank">Duncan_Apj373(Li in cool stars)</a>
-      <a href="Reference/Duncan_Hobbs_87.pdf" target="_blank">Duncan_Hobbs_87(Li in cool stars)</a>
-      <a href="Reference/Boesgaard_1990_CSW.pdf" target="_blank">Boesgaard_1990_CSW(Li in cool stars)</a>
-    </div>
-  <footer>© 2025 jy</footer>
-
-  <script>
-    function showGallery(id) {
-      document.querySelectorAll('.gallery').forEach(g => g.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
 </body>
 </html>
